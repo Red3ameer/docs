@@ -5,18 +5,7 @@ export type BaseTocItem = {
 }
 
 export type ChildTocItem = BaseTocItem & {
-  octicon?:
-    | 'code'
-    | 'log'
-    | 'terminal'
-    | 'bug'
-    | 'lightbulb'
-    | 'gear'
-    | 'rocket'
-    | 'beaker'
-    | 'copilot'
-    | 'hubot'
-    | 'book'
+  octicon?: string
   category?: string[]
   complexity?: string[]
   industry?: string[]

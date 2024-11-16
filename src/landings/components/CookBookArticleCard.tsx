@@ -1,37 +1,9 @@
 import { Label, LabelGroup, Link } from '@primer/react'
-import {
-  BugIcon,
-  LightBulbIcon,
-  CodeIcon,
-  GearIcon,
-  RocketIcon,
-  BeakerIcon,
-  CopilotIcon,
-  HubotIcon,
-  LogIcon,
-  TerminalIcon,
-  BookIcon,
-} from '@primer/octicons-react'
-
-const Icons = {
-  bug: BugIcon,
-  lightbulb: LightBulbIcon,
-  code: CodeIcon,
-  gear: GearIcon,
-  rocket: RocketIcon,
-  beaker: BeakerIcon,
-  copilot: CopilotIcon,
-  hubot: HubotIcon,
-  log: LogIcon,
-  terminal: TerminalIcon,
-  book: BookIcon,
-}
-
-type IconType = keyof typeof Icons
+import { BugIcon } from '@primer/octicons-react'
 
 type Props = {
   title?: string
-  icon?: IconType
+  icon?: string
   url?: string
   description?: string
   tags?: string[]
@@ -45,7 +17,18 @@ const defaultProps = {
   description:
     'Man bun letterpress put a bird on it la croix offal, meh grailed hot chicken kombucha gochujang messenger bag fit before they sold out lyft.',
   tags: ['Tag Example', 'Tag Example'],
-  icon: 'book',
+  icon: 'bugicon',
+}
+
+function setIcon(icon: string) {
+  switch (icon) {
+    case 'bugicon':
+      return <BugIcon size={48} className="mr-4 bgColor-accent-muted p-3 circle fgColor-accent" />
+    case 'none':
+      return null
+    default:
+      return null
+  }
 }
 
 function setImage(image: string) {
@@ -68,18 +51,13 @@ function setImage(image: string) {
 const spotlightClasses = 'd-flex flex-column align-items-center'
 export const CookBookArticleCard = ({
   title = defaultProps.title,
-  icon = defaultProps.icon as IconType,
+  icon = defaultProps.icon,
   tags = defaultProps.tags,
   description = defaultProps.description,
   image = '',
   url,
   spotlight = false,
 }: Props) => {
-  const setIcon = (icon: keyof typeof Icons) => {
-    return Icons[icon] || CopilotIcon
-  }
-
-  const IconComponent = setIcon(icon as keyof typeof Icons)
   return (
     <div className="m-2">
       <div
@@ -87,14 +65,7 @@ export const CookBookArticleCard = ({
         className={spotlight ? spotlightClasses : 'd-flex pb-3 border-bottom'}
       >
         {spotlight ? setImage(image) : null}
-        {spotlight
-          ? null
-          : IconComponent && (
-              <IconComponent
-                size={48}
-                className="mr-4 bgColor-accent-muted p-3 circle fgColor-accent"
-              />
-            )}
+        {spotlight ? setIcon('none') : setIcon(icon)}
         <div>
           <Link href={url}>
             <h3 className="h4">{title}</h3>
