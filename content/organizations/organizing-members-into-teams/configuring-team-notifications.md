@@ -2,9 +2,7 @@
 title: Configuring team notifications
 intro: 'Team maintainers and organization owners can configure notifications for specific teams.'
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
+  feature: team-mentions-setting
 topics:
   - Organizations
   - Teams

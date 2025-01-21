@@ -1,5 +1,5 @@
 
-{% ifversion ghec or ghes %}
+{% ifversion target-runner-groups %}{% ifversion ghec or ghes %}
 
 ## Using unique names for runner groups
 
@@ -13,5 +13,7 @@ To avoid ambiguity, a workflow will fail if there are duplicate runner groups in
 ### Example: Using prefixes to differentiate runner groups
 
 {% data reusables.actions.using-prefixes-to-differentiate-runner-groups %}
+
+{% endif %}
 
 {% endif %}

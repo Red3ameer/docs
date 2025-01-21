@@ -38,8 +38,10 @@ To use the action in your current workflow place this snippet under `jobs`.
 - name: Upload GitHub Pages artifact
 {%- ifversion fpt or ghec %}
   uses: actions/upload-pages-artifact@v3
-{%- elsif ghes %}
+{%- elsif pages-custom-workflow-ghes3-9 %}
   uses: actions/upload-pages-artifact@v2
+{%- else %}
+  uses: actions/upload-pages-artifact@v1
 {%- endif %}
 ```
 
@@ -73,8 +75,10 @@ jobs:
         id: deployment
 {%- ifversion fpt or ghec %}
         uses: actions/deploy-pages@v4
-{%- elsif ghes %}
+{%- elsif pages-custom-workflow-ghes3-9 %}
         uses: actions/deploy-pages@v3
+{%- else %}
+        uses: actions/deploy-pages@v1
 {%- endif %}
 # ...
 ```
@@ -104,8 +108,10 @@ jobs:
       - name: Upload artifact
 {%- ifversion fpt or ghec %}
         uses: actions/upload-pages-artifact@v3
-{%- elsif ghes %}
+{%- elsif pages-custom-workflow-ghes3-9 %}
         uses: actions/upload-pages-artifact@v2
+{%- else %}
+        uses: actions/upload-pages-artifact@v1
 {%- endif %}
 
   # Deployment job
@@ -120,8 +126,10 @@ jobs:
         id: deployment
 {%- ifversion fpt or ghec %}
         uses: actions/deploy-pages@v4
-{%- elsif ghes %}
+{%- elsif pages-custom-workflow-ghes3-9 %}
         uses: actions/deploy-pages@v3
+{%- else %}
+        uses: actions/deploy-pages@v1
 {%- endif %}
 # ...
 ```
@@ -146,8 +154,10 @@ jobs:
       - name: Upload Artifact
 {%- ifversion fpt or ghec %}
         uses: actions/upload-pages-artifact@v3
-{%- elsif ghes %}
+{%- elsif pages-custom-workflow-ghes3-9 %}
         uses: actions/upload-pages-artifact@v2
+{%- else %}
+        uses: actions/upload-pages-artifact@v1
 {%- endif %}
         with:
           # upload entire directory
@@ -156,8 +166,10 @@ jobs:
         id: deployment
 {%- ifversion fpt or ghec %}
         uses: actions/deploy-pages@v4
-{%- elsif ghes %}
+{%- elsif pages-custom-workflow-ghes3-9 %}
         uses: actions/deploy-pages@v3
+{%- else %}
+        uses: actions/deploy-pages@v1
 {%- endif %}
 
 # ...

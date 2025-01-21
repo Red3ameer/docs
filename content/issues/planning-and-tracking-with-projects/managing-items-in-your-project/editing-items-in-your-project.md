@@ -3,9 +3,7 @@ title: 'Editing items in your {% data variables.projects.project_v2 %}'
 shortTitle: Editing items
 intro: 'There are several methods you can use within your {% data variables.projects.project_v2 %} to quickly make changes to multiple items.'
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
+  feature: projects-v2-bulk-table-editing
 type: tutorial
 topics:
   - Projects

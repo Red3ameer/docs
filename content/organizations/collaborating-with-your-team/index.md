@@ -17,4 +17,6 @@ children:
 shortTitle: Collaborate with your team
 ---
 
+{% ifversion team-discussions-migration %}
 {% data reusables.organizations.team-discussions-migration %}
+{% endif %}
